@@ -1,20 +1,18 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import Header from '../../components/Header/index';
+import Header from '../../components/Header'
+import Hexagon from '../../components/Hexagon'
 // import styles from './styles'
 
 function AppLayout(props) {
     return (
         <View>
-            {/* header */}
-            <View><Text>header</Text></View>
+            <View><Text>Some text</Text></View>
 
-            {/* app content */}
             <View>{props.children}</View>
 
-            {/* footer */}
-            <View><Text>footer</Text></View>
-        </View >
+            <View> <Hexagon /> </View>
+        </View>
     );
 }
 
