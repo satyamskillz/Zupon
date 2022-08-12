@@ -1,23 +1,17 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import colors from '../../constants/colors';
 
 function Hexagon(props) {
     return (
-        <View style={styles.flex}>
-
-            <View style={styles.flex}>
-
-                <View style={styles.container}></View>
-
-
-            </View>
-            <View style={[styles.corner, styles.corner1]}></View>
-            <View style={[styles.corner, styles.corner2]}></View>
-            <View style={[styles.corner, styles.corner3]}></View>
-            <View style={[styles.corner, styles.corner4]}></View>
+        <View style={styles.container}>
+            <Text style={styles.text}>{props.text ? props.text : ""}</Text>
+            {/* <View>
+                subText && <Text style={styles.subText}>{props.subText}</Text>
+            </View> */}
         </View>
     );
+
 }
 
 const styles = StyleSheet.create({
@@ -25,24 +19,20 @@ const styles = StyleSheet.create({
         borderColor: colors.primary,
         backgroundColor: colors.primary,
         borderWidth: 5,
-        margin: 25,
-        height: 100,
-        width: 100,
+        margin: 15,
+        height: 70,
+        width: 70,
+        borderRadius: 10,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
-    corner: {
-        borderColor: colors.black,
-        backgroundColor: colors.black,
-        borderWidth: 5,
-        margin: 25,
-        height: 100,
-        width: 100,
-        position: "absolute",
+    subText: {
+        color: colors.black,
+        fontSize: 24,
     },
-    corner1: {
-
-    },
-    flex: {
-        position: "relative",
+    text: {
+        fontSize: 46,
     }
 })
 
