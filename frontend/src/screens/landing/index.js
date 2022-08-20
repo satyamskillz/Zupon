@@ -40,11 +40,8 @@ const styles = StyleSheet.create({
         color: "#fff",
         textAlign: "center",
         marginVertical: 32,
-        fontWeight: "900",
         letterSpacing: 5,
-        body: {
-
-        }
+        fontFamily: "Inter-Black",
     },
     body: {
         position: "absolute",
@@ -73,7 +70,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         fontSize: 36,
         color: colors.black,
-        fontWeight: "600",
+        fontFamily: "Inter-SemiBold"
     },
     header: {
         height: "70%",

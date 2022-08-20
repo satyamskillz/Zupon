@@ -2,32 +2,33 @@ import React, { useState } from "react";
 import { View, FlatList, SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 import colors from '../../constants/colors'
 import Hexagon from '../../components/Hexagon'
+import Header from '../../components/Header'
 const DATA = [
     {
         id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-        title: "",
+        title: "Coupon - 1",
     },
     {
         id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-        title: "",
+        title: "Coupon - 2",
     },
     {
         id: "58694a0f-3da1-471f-bd96-145571e29d72",
-        title: "",
+        title: "Coupon - 3",
     },
     {
         id: "58694a0f-3da1-471f-bd96-145571e29d73",
-        title: "",
+        title: "Coupon - 4",
     },
     {
         id: "58694a0f-3da1-471f-bd96-145571e29d74",
-        title: "",
+        title: "Coupon - 5",
     },
 ];
 
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
     <TouchableOpacity onPress={onPress} style={[styles.item, backgroundColor]}>
-        <Text style={[styles.title, textColor]}>{item.title}</Text>
+        <Text style={[styles.couponTitle, textColor]}>{item.title}</Text>
     </TouchableOpacity>
 );
 
@@ -39,32 +40,33 @@ const HomeScreen = () => {
         const color = item.id === selectedId ? 'white' : 'black';
 
         return (
-            <ScrollView>
-                <Item style={styles.item}
-                    item={item}
-                    onPress={() => setSelectedId(item.id)}
-                    backgroundColor={{ backgroundColor }}
-                    textColor={{ color }}
-                />
-            </ScrollView>
+            <Item style={styles.item}
+                item={item}
+                onPress={() => setSelectedId(item.id)}
+                backgroundColor={{ backgroundColor }}
+                textColor={{ color }}
+            />
         );
     };
 
     return (
         <SafeAreaView style={styles.container}>
+            <Header />
+            <ScrollView>
 
-            <View style={styles.topBar}>
-                <Hexagon text={""} subText={"Available"} />
-                <Hexagon text={""} subText={"Used"} />
-                <Hexagon text={""} subText={"Expired"} />
-            </View>
+                <View style={styles.topBar}>
+                    <Hexagon text={"1"} subText={"Available"} />
+                    <Hexagon text={"2"} subText={"Used"} />
+                    <Hexagon text={"3"} subText={"Expired"} />
+                </View>
 
-            <FlatList
-                data={DATA}
-                renderItem={renderItem}
-                keyExtractor={(item) => item.id}
-                extraData={selectedId}
-            />
+                <FlatList
+                    data={DATA}
+                    renderItem={renderItem}
+                    keyExtractor={(item) => item.id}
+                    extraData={selectedId}
+                />
+            </ScrollView>
         </SafeAreaView>
     );
 };
@@ -72,24 +74,33 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.light,
-        flex: .8,
+        flex: 1,
         marginTop: StatusBar.currentHeight || 0,
     },
     item: {
-        padding: 15,
-        marginVertical: 5,
-        marginHorizontal: 16,
-        borderRadius: 10,
+        display: "flex",
+        justifyContent: "center",
+        paddingHorizontal: 20,
+        margin: 10,
+        height: 100,
+        borderRadius: 12,
     },
-    title: {
+    couponTitle: {
         fontSize: 28,
+        fontFamily: "Inter-Regular"
     },
     topBar: {
+        backgroundColor: colors.white,
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-        flex: 1,
+        paddingVertical: 32,
+        paddingHorizontal: 20,
+        margin: 10,
+        marginTop: 15,
+        borderRadius: 12,
+        height: 180,
     }
 });
 

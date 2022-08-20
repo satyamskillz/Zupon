@@ -4,11 +4,11 @@ import colors from '../../constants/colors';
 
 function Hexagon(props) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.text}>{props.text ? props.text : ""}</Text>
-            {/* <View>
-                subText && <Text style={styles.subText}>{props.subText}</Text>
-            </View> */}
+        <View>
+            <View style={styles.container}>
+                <Text style={styles.text}>{props.text ? props.text : ""}</Text>
+            </View>
+            <Text style={styles.subText}>{props.subText}</Text>
         </View>
     );
 
@@ -16,23 +16,25 @@ function Hexagon(props) {
 
 const styles = StyleSheet.create({
     container: {
-        borderColor: colors.primary,
         backgroundColor: colors.primary,
-        borderWidth: 5,
-        margin: 15,
-        height: 70,
-        width: 70,
+        marginHorizontal: 20,
+        marginVertical: 10,
+        height: 80,
+        width: 80,
         borderRadius: 10,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
     },
     subText: {
-        color: colors.black,
-        fontSize: 24,
+        fontSize: 16,
+        fontFamily: "Inter-Medium",
+        textAlign: "center",
+        color: colors.black
     },
     text: {
-        fontSize: 46,
+        fontSize: 40,
+        fontFamily: "Inter-Light"
     }
 })
 

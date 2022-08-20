@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
         borderRadius: 7,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
+        paddingVertical: 15,
+        paddingHorizontal: 10,
         width: "80%",
         marginVertical: 10,
     },
@@ -52,7 +53,8 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontSize: 20,
         textAlign: "center",
-        fontWeight: "bold",
+        // fontWeight: "bold",
+        fontFamily: "Inter-SemiBold"
     }
 })
 
