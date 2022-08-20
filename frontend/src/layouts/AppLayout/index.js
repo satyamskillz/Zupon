@@ -1,21 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import Header from '../../components/Header'
+import { TouchableOpacity } from 'react-native';
+import { View } from 'react-native';
 import Hexagon from '../../components/Hexagon'
-// import styles from './styles'
+import HomeScreen from '../../screens/Home';
 
 function AppLayout(props) {
     return (
-        <View>
-            <View><Text>Some text</Text></View>
-
-            <View>{props.children}</View>
-
-            <View> <Hexagon /> </View>
+        <View style={{ position: "relative", height: "100%" }}>
+            <HomeScreen />
+            <TouchableOpacity style={{ position: "absolute", bottom: 20, left: "37%", opacity: .5 }}>
+                <Hexagon text={"+"} />
+            </TouchableOpacity>
         </View>
     );
 }
 
-
-export default AppLayout
-    ;
+export default AppLayout;

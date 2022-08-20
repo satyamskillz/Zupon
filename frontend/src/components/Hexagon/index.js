@@ -8,7 +8,7 @@ function Hexagon(props) {
             <View style={styles.container}>
                 <Text style={styles.text}>{props.text ? props.text : ""}</Text>
             </View>
-            <Text style={styles.subText}>{props.subText}</Text>
+            <Text style={styles.subText}>{props.subText ? props.subText : ""}</Text>
         </View>
     );
 

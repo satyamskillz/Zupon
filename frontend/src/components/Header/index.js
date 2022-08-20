@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pressable } from 'react-native';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 
 import colors from '../../constants/colors'

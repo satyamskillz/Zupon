@@ -5,24 +5,36 @@ import Hexagon from '../../components/Hexagon'
 import Header from '../../components/Header'
 const DATA = [
     {
-        id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+        id: "1",
         title: "Coupon - 1",
     },
     {
-        id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+        id: "2",
         title: "Coupon - 2",
     },
     {
-        id: "58694a0f-3da1-471f-bd96-145571e29d72",
+        id: "3",
         title: "Coupon - 3",
     },
     {
-        id: "58694a0f-3da1-471f-bd96-145571e29d73",
+        id: "4",
         title: "Coupon - 4",
     },
     {
-        id: "58694a0f-3da1-471f-bd96-145571e29d74",
+        id: "5",
         title: "Coupon - 5",
+    },
+    {
+        id: "6",
+        title: "Coupon - 6",
+    },
+    {
+        id: "7",
+        title: "Coupon - 7",
+    },
+    {
+        id: "8",
+        title: "Coupon - 8",
     },
 ];
 
@@ -53,7 +65,6 @@ const HomeScreen = () => {
         <SafeAreaView style={styles.container}>
             <Header />
             <ScrollView>
-
                 <View style={styles.topBar}>
                     <Hexagon text={"1"} subText={"Available"} />
                     <Hexagon text={"2"} subText={"Used"} />
@@ -67,6 +78,7 @@ const HomeScreen = () => {
                     extraData={selectedId}
                 />
             </ScrollView>
+
         </SafeAreaView>
     );
 };
