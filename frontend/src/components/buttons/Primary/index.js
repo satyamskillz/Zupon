@@ -1,59 +1,55 @@
-import React from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
-import { View, Text } from 'react-native';
-import PropTypes from 'prop-types';
-import colors from '../../../constants/colors';
-
-/**
- * documentaion, 
- */
+import { StyleSheet, TouchableHighlight } from "react-native";
+import colors from "../../../constants/colors";
+import { View, Text } from "react-native";
+import PropTypes from "prop-types";
 
 function PrimaryBtn(props) {
-    return (
-        <View style={styles.container}>
-            <TouchableHighlight
-                style={[styles.button, { backgroundColor: colors[props.color] }]}
-                onClick={props.onClick}
-            >
-                <Text
-                    style={styles.text}
-                >{props.title}</Text>
-            </TouchableHighlight>
-        </View>
-    );
+	return (
+		<View style={styles.container}>
+			<TouchableHighlight
+				activeOpacity={0.5}
+				underlayColor={colors.primary}
+				style={[
+					styles.button,
+					{ backgroundColor: colors[props.color], width: props.width },
+				]}
+				onPress={props.onPress}
+			>
+				<Text style={styles.text}>{props.title}</Text>
+			</TouchableHighlight>
+		</View>
+	);
 }
 
 PrimaryBtn.propTypes = {
-    title: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
-
-}
+	title: PropTypes.string,
+	color: PropTypes.string,
+	onPress: PropTypes.func,
+};
 
 PrimaryBtn.defaultProps = {
-    color: "primary"
-}
+	color: "primary",
+};
 
 const styles = StyleSheet.create({
-    button: {
-        backgroundColor: colors.primary,
-        borderRadius: 7,
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 20,
-        width: "80%",
-        marginVertical: 10,
-    },
-    container: {
-        display: "flex",
-        alignItems: "center",
-    },
-    text: {
-        color: colors.black,
-        fontSize: 20,
-        textAlign: "center",
-        fontWeight: "bold",
-    }
-})
+	button: {
+		backgroundColor: colors.primary,
+		justifyContent: "center",
+		paddingHorizontal: 32,
+		alignItems: "center",
+		paddingVertical: 18,
+		borderRadius: 7,
+	},
+	container: {
+		display: "flex",
+		alignItems: "center",
+	},
+	text: {
+		fontSize: 22,
+		fontWeight: 600,
+		textAlign: "center",
+		color: colors.dark900,
+	},
+});
 
 export default PrimaryBtn;
