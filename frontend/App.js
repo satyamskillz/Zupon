@@ -4,19 +4,25 @@ import { NavigationContainer } from "@react-navigation/native";
 import { Provider, useSelector } from "react-redux";
 import { useEffect } from "react";
 
+import PermissionScreen from "./src/screens/Permission";
 import AddCouponScreen from "./src/screens/AddCoupon";
+import DashboardScreen from "./src/screens/Dashboard";
 import LandingScreen from "./src/screens/Landing";
-import HomeScreen from "./src/screens/Home";
 import store from "./src/store";
 
 const Stack = createNativeStackNavigator();
 
-const AppStack = () => {
+const AppStack = ({ isNewUser }) => {
 	return (
-		<Stack.Navigator initialRouteName="Dashboard">
+		<Stack.Navigator initialRouteName={isNewUser ? "Permission" : "Dashboard"}>
 			<Stack.Screen
 				name="Dashboard"
-				component={HomeScreen}
+				component={DashboardScreen}
+				options={{ headerShown: false }}
+			/>
+			<Stack.Screen
+				name="Permission"
+				component={PermissionScreen}
 				options={{ headerShown: false }}
 			/>
 			<Stack.Screen
@@ -49,7 +55,7 @@ const AppWrapper = () => {
 };
 
 function App(props) {
-	const { isLoggedIn } = useSelector((state) => state.auth);
+	const { isLoggedIn, isNewUser } = useSelector((state) => state.auth);
 
 	useEffect(() => {
 		const checkLoggedIn = async () => {
@@ -68,7 +74,11 @@ function App(props) {
 		checkLoggedIn();
 	}, []);
 
-	return <NavigationContainer>{isLoggedIn ? <AppStack /> : <AuthStack />}</NavigationContainer>;
+	return (
+		<NavigationContainer>
+			{isLoggedIn ? <AppStack isNewUser={isNewUser} /> : <AuthStack />}
+		</NavigationContainer>
+	);
 }
 
 export default AppWrapper;

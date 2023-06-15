@@ -14,7 +14,7 @@ var filter = {
 	box: "", // 'inbox' (default), 'sent', 'draft', 'outbox', 'failed', 'queued', and '' for all
 };
 
-function Header({ isBackAvailable, navigation }) {
+function Header({ isBackAvailable, handleBack }) {
 	const { authData } = useSelector((state) => state.auth);
 
 	const handleLogout = async () => {
@@ -56,9 +56,9 @@ function Header({ isBackAvailable, navigation }) {
 			{isBackAvailable ? (
 				<TouchableOpacity
 					activeOpacity={0.8}
+					onPress={handleBack}
 					style={styles.leftBtn}
 					underlayColor={colors.light900}
-					onPress={() => navigation.goBack()}
 				>
 					<MaterialIcon size="xlarge" name="arrow-back" color="black" />
 				</TouchableOpacity>

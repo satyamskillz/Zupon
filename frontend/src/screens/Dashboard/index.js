@@ -91,7 +91,7 @@ const couponList = [
 	},
 ];
 
-const HomeScreen = ({ navigation }) => {
+const DashboardScreen = ({ navigation }) => {
 	const [selectedCouponId, setSelectedCouponId] = useState(null);
 
 	const handleCouponPress = (id) => {
@@ -148,7 +148,7 @@ const HomeScreen = ({ navigation }) => {
 	);
 };
 
-export default HomeScreen;
+export default DashboardScreen;
 
 const PlusIcon = () => (
 	<Image style={styles.plusIcon} source={require("../../../assets/images/dark_plus.png")} />

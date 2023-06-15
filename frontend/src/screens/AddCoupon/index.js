@@ -28,7 +28,7 @@ const AddCouponScreen = (props) => {
 
 	return (
 		<SafeAreaView style={styles.container}>
-			<Header isBackAvailable={true} {...props} />
+			<Header isBackAvailable={true} handleBack={() => navigation.goBack()} />
 			<ScrollView style={styles.body}>
 				<FormInput value={brandName} onChangeText={setBrandName} placeholder="Brand name" />
 				<FormInput
