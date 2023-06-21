@@ -55,7 +55,7 @@ const AppWrapper = () => {
 };
 
 function App(props) {
-	const { isLoggedIn, isNewUser } = useSelector((state) => state.auth);
+	const { isLoggedIn, isNewUser } = useSelector((state) => state.user);
 
 	useEffect(() => {
 		const checkLoggedIn = async () => {
@@ -63,7 +63,7 @@ function App(props) {
 				const authData = await AsyncStorage.getItem("@authData");
 				if (authData) {
 					store.dispatch({
-						type: "LOGIN",
+						type: "RELOGIN",
 						payload: JSON.parse(authData),
 					});
 				}
