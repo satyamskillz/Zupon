@@ -4,11 +4,14 @@ import PrimaryBtn from "../../components/buttons/Primary";
 import { Text, View, Image } from "react-native";
 import { useEffect } from "react";
 
+// Env Variables
+import { GOOGLE_WEB_ID, GOOGLE_ANDROID_ID } from "@env";
+
 import store from "../../store";
 import styles from "./style";
 
-const webClientId = "1087337224518-vrfjqv6eeu9n6rr7ltjmabs22ntnjb06.apps.googleusercontent.com";
-const androidClientId = "1087337224518-533re7n2shc0tof16pts4n19vi1179m1.apps.googleusercontent.com";
+const webClientId = GOOGLE_WEB_ID;
+const androidClientId = GOOGLE_ANDROID_ID;
 
 function LandingScreen({ navigation }) {
 	const saveAuthData = async (authData) => {

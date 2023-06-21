@@ -1,21 +1,18 @@
-import { View, Text, StyleSheet, TouchableOpacity, Image, PermissionsAndroid } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
 import { initials } from "@dicebear/collection";
 import { createAvatar } from "@dicebear/core";
-import colors from "../../constants/colors";
 import { SvgXml } from "react-native-svg";
-import { MaterialIcon } from "../Icons";
 import { useSelector } from "react-redux";
+import { MaterialIcon } from "../Icons";
+
+import colors from "../../constants/colors";
 import store from "../../store";
 
-import SmsAndroid from "react-native-get-sms-android";
-
-var filter = {
-	box: "", // 'inbox' (default), 'sent', 'draft', 'outbox', 'failed', 'queued', and '' for all
-};
-
 function Header({ isBackAvailable, handleBack }) {
-	const { authData } = useSelector((state) => state.auth);
+	const { authData } = useSelector((state) => state.user);
+	const navigation = useNavigation();
 
 	const handleLogout = async () => {
 		try {
@@ -26,31 +23,6 @@ function Header({ isBackAvailable, handleBack }) {
 		}
 	};
 
-	const onPress = async () => {
-		try {
-			const granted = await PermissionsAndroid.request(
-				PermissionsAndroid.PERMISSIONS.READ_SMS
-			);
-			if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-				// Permission granted, you can read SMS
-
-				SmsAndroid.list(
-					JSON.stringify(filter),
-					(err) => {
-						console.log("Error:", err);
-					},
-					(count, smsList) => {
-						console.log(count);
-						console.log(smsList);
-					}
-				);
-			} else {
-				// Permission denied
-			}
-		} catch (error) {
-			console.warn("SMS permission request failed:", error);
-		}
-	};
 	return (
 		<View style={styles.container}>
 			{isBackAvailable ? (
@@ -76,10 +48,10 @@ function Header({ isBackAvailable, handleBack }) {
 				<Text style={styles.logoText}>ZUPON</Text>
 			</View>
 			<TouchableOpacity
-				onPress={onPress}
 				activeOpacity={0.8}
 				style={styles.rightBtn}
 				underlayColor={colors.light900}
+				onPress={() => navigation.navigate("Permission")}
 			>
 				{authData?.user?.photo ? (
 					<GoogleIcon source={authData?.user?.photo} />
