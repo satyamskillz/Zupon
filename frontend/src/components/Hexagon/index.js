@@ -1,7 +1,7 @@
 import { Text, View, StyleSheet } from "react-native";
 import colors from "../../constants/colors";
 
-function Hexagon({ text, render, subText, height = 86, bgColor = colors.primary }) {
+function Hexagon({ text, render, subText, height = 80, bgColor = colors.primary }) {
 	const calculateWidth = (height) => {
 		return height * (Math.sqrt(3) / 2);
 	};
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 		color: colors.dark900,
 	},
 	subLabel: {
-		fontSize: 18,
+		fontSize: 16,
 		fontWeight: 500,
 		color: colors.primary,
 	},
@@ -62,7 +62,6 @@ const styles = StyleSheet.create({
 		backgroundColor: bgColor,
 	}),
 	bottom: ({ height, width, bgColor }) => ({
-		top: -1,
 		width: 0,
 		height: 0,
 		borderTopWidth: height / 4,
