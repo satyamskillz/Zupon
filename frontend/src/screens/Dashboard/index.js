@@ -7,6 +7,7 @@ import {
 	SafeAreaView,
 	TouchableOpacity,
 	TouchableWithoutFeedback,
+	TouchableHighlight,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 
@@ -98,6 +99,9 @@ const DashboardScreen = ({ navigation }) => {
 		setSelectedCouponId(id);
 	};
 
+	const syncEmails = () => {};
+	const syncSMS = () => {};
+
 	useEffect(() => {
 		return () => setSelectedCouponId(null);
 	}, []);
@@ -117,6 +121,26 @@ const DashboardScreen = ({ navigation }) => {
 					<TouchableWithoutFeedback>
 						<Hexagon text="95" subText="Expired" />
 					</TouchableWithoutFeedback>
+				</View>
+				<View style={styles.groupBreaker}>
+					<Text style={styles.groupLabel}>Active Coupons</Text>
+
+					<TouchableHighlight
+						underlayColor={colors.light700}
+						style={styles.syncBtn}
+						onPress={syncEmails}
+						activeOpacity={0.5}
+					>
+						<Text style={styles.syncBtnText}>Sync Gmail</Text>
+					</TouchableHighlight>
+					<TouchableHighlight
+						underlayColor={colors.light700}
+						style={styles.syncBtn}
+						onPress={syncEmails}
+						activeOpacity={0.5}
+					>
+						<Text style={styles.syncBtnText}>Sync SMS</Text>
+					</TouchableHighlight>
 				</View>
 				{couponList?.map((coupon, idx) => (
 					<CouponCard key={idx} data={coupon} onPress={handleCouponPress} />
@@ -202,5 +226,29 @@ const styles = StyleSheet.create({
 		fontWeight: 400,
 		textAlign: "justify",
 		color: colors.dark900,
+	},
+	groupBreaker: {
+		display: "flex",
+		alignItems: "center",
+		flexDirection: "row",
+		marginBottom: 16,
+	},
+	groupLabel: {
+		fontSize: 16,
+		fontWeight: 600,
+		marginRight: "auto",
+		color: colors.dark600,
+	},
+	syncBtn: {
+		marginLeft: 8,
+		borderRadius: 24,
+		paddingVertical: 4,
+		paddingHorizontal: 12,
+		backgroundColor: colors.light700,
+	},
+	syncBtnText: {
+		fontSize: 12,
+		fontWeight: 500,
+		color: colors.dark500,
 	},
 });
