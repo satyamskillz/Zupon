@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 	},
 	detail: {
 		fontSize: 18,
-		fontWeight: 600,
+		fontWeight: 500,
 		color: colors.dark900,
 	},
 });

@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
 	brandName: {
 		fontSize: 18,
 		fontWeight: 500,
-		color: colors.dark500,
+		color: colors.dark700,
 	},
 	offer: {
 		fontSize: 24,
@@ -150,12 +150,12 @@ const styles = StyleSheet.create({
 		borderBottomColor: colors.light600,
 	}),
 	codeText: {
-		fontSize: 18,
+		fontSize: 16,
 		fontWeight: 600,
 		color: colors.dark900,
 	},
 	codeLabel: {
-		fontSize: 18,
+		fontSize: 16,
 		fontWeight: 600,
 		color: colors.dark500,
 	},
